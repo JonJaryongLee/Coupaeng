@@ -66,8 +66,6 @@ while($row = mysqli_fetch_array($result)){
 }
 $order_list = $order_list.'</tr></table>';
 
-echo $order_list;
-
 if ($result === false) {
 		error_log(mysqli_error($conn));
 	}
@@ -86,51 +84,8 @@ if ($result === false) {
 <body>
 	<a href="index.php">첫 페이지로 돌아가기</a>
 	<h1>주문목록</h1>
-
 	<form action="update_or_delete.php" method="POST">
-		<table>
-			<tr>
-				<th>주문번호</th>
-				<th>주문자</th>
-				<th>제품</th>
-				<th>수량</th>
-				<th>받는사람</th>
-				<th>배송지</th>
-				<th>수령인연락처</th>
-				<th>선택</th>
-			</tr>
-			<tr>
-				<td>103</td>
-				<td>황혁주</td>
-				<td>횡성한우</td>
-				<td>2</td>
-				<td>김남석</td>
-				<td>김해시 장유면</td>
-				<td>010-1111-2222</td>
-				<td><input type="radio" name="selectedOrder" value='1' checked></td>
-			</tr>
-			<tr>
-				<td>299</td>
-				<td>황혁주</td>
-				<td>황사마스크</td>
-				<td>5</td>
-				<td>박준수</td>
-				<td>진주시 가좌동</td>
-				<td>010-3333-4444</td>
-				<td><input type="radio" name="selectedOrder" value='2'></td>
-			</tr>
-			<tr>
-				<td>564</td>
-				<td>이자룡</td>
-				<td>햇반</td>
-				<td>1</td>
-				<td>최이삭</td>
-				<td>대전시 은행동</td>
-				<td>010-5555-6666</td>
-				<td><input type="radio" name="selectedOrder" value='3'></td>
-			</tr>
-		</table>
-
+		<?=$order_list?>
 		<h4>선택한 것을</h4>
 		<input type="submit" name="update" value="수정">
 		<input type="submit" name="delete" value="삭제">
